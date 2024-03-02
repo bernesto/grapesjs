@@ -20,7 +20,7 @@ $cui-cls:           $app-prefix + 'cui' !default;
   not only in SCSS but even CSS
 */
 $primaryColor:      #444 !default;
-$secondaryColor:    #ddd !default;
+$secondaryColor:    #fff !default;
 $tertiaryColor:     #804f7b !default;
 $quaternaryColor:   #d278c9 !default;
 
@@ -65,7 +65,7 @@ $uploadPadding:     150px 10px !default;
 $animSpeed:         0.2s !default;
 
 /* Fonts */
-$mainFont:          Helvetica, sans-serif !default;
+$mainFont:          Arial, Helvetica, sans-serif !default;
 $fontSize:          0.75rem !default;
 
 /* Tools */

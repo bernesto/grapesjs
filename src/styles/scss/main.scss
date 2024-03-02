@@ -195,8 +195,8 @@ $colorsAll: (one, var(--gjs-primary-color)),
   --gjs-main-color: #{$mainColor};
   --gjs-primary-color: #{$primaryColor};
   --gjs-secondary-color: #{$secondaryColor};
-  --gjs-tertiary-color: #{$tertiaryColor};
-  --gjs-quaternary-color: #{$quaternaryColor};
+  --gjs-tertiary-color: var(--blue-4); // #{$tertiaryColor};
+  --gjs-quaternary-color: var(--blue-2); // #{$quaternaryColor};
   --gjs-font-color: #{$fontColor};
   --gjs-font-color-active: #{$fontColorActive};
   --gjs-main-dark-color: #{$mainDkColor};
@@ -353,9 +353,9 @@ $colorsAll: (one, var(--gjs-primary-color)),
 
   font-weight: lighter;
   background-color: var(--gjs-secondary-dark-color);
-  letter-spacing: 1px;
-  padding: 9px 10px 9px 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  color: var(--grey-33);
+  padding: 8px 11px;
+  border-bottom: 1px solid var(--grey-63);
   text-align: left;
   position: relative;
   cursor: pointer;
