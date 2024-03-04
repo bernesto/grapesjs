@@ -195,8 +195,8 @@ $colorsAll: (one, var(--gjs-primary-color)),
   --gjs-main-color: #{$mainColor};
   --gjs-primary-color: #{$primaryColor};
   --gjs-secondary-color: #{$secondaryColor};
-  --gjs-tertiary-color: var(--blue-4); // #{$tertiaryColor};
-  --gjs-quaternary-color: var(--blue-2); // #{$quaternaryColor};
+  --gjs-tertiary-color: #{$tertiaryColor};
+  --gjs-quaternary-color: #{$quaternaryColor};
   --gjs-font-color: #{$fontColor};
   --gjs-font-color-active: #{$fontColorActive};
   --gjs-main-dark-color: #{$mainDkColor};
