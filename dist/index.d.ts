@@ -3730,7 +3730,7 @@ export interface ComponentProperties {
 	 */
 	copyable?: boolean;
 	/**
-	 * Indicates if it's possible to resize the component. It's also possible to pass an object as [options for the Resizer](https://github.com/GrapesJS/grapesjs/blob/master/src/utils/Resizer.js). Default: `false`
+	 * Indicates if it's possible to resize the component. It's also possible to pass an object as [options for the Resizer](https://github.com/GrapesJS/grapesjs/blob/master/src/utils/Resizer.ts). Default: `false`
 	 */
 	resizable?: boolean | ResizerOptions;
 	/**
@@ -4195,7 +4195,7 @@ export interface IComponent extends ExtractMethods<Component> {
  * @property {Array<String>} [unstylable=[]] Indicate an array of style properties which should be hidden from the style manager. Default: `[]`
  * @property {Boolean} [highlightable=true] It can be highlighted with 'dotted' borders if true. Default: `true`
  * @property {Boolean} [copyable=true] True if it's possible to clone the component. Default: `true`
- * @property {Boolean} [resizable=false] Indicates if it's possible to resize the component. It's also possible to pass an object as [options for the Resizer](https://github.com/GrapesJS/grapesjs/blob/master/src/utils/Resizer.js). Default: `false`
+ * @property {Boolean} [resizable=false] Indicates if it's possible to resize the component. It's also possible to pass an object as [options for the Resizer](https://github.com/GrapesJS/grapesjs/blob/master/src/utils/Resizer.ts). Default: `false`
  * @property {Boolean} [editable=false] Allow to edit the content of the component (used on Text components). Default: `false`
  * @property {Boolean} [layerable=true] Set to `false` if you need to hide the component inside Layers. Default: `true`
  * @property {Boolean} [selectable=true] Allow component to be selected when clicked. Default: `true`
@@ -8184,6 +8184,46 @@ export type CssGeneratorBuildOptions = {
 	rules?: CssRule[];
 	clearStyles?: boolean;
 };
+export interface ColorPickerOptions {
+	beforeShow?: () => void;
+	move?: () => void;
+	change?: () => void;
+	show?: () => void;
+	hide?: () => void;
+	color?: boolean;
+	flat?: boolean;
+	showInput?: boolean;
+	allowEmpty?: boolean;
+	showButtons?: boolean;
+	clickoutFiresChange?: boolean;
+	showInitial?: boolean;
+	showPalette?: boolean;
+	showPaletteOnly?: boolean;
+	hideAfterPaletteSelect?: boolean;
+	togglePaletteOnly?: boolean;
+	showSelectionPalette?: boolean;
+	localStorageKey?: boolean;
+	appendTo?: string;
+	maxSelectionSize?: number;
+	cancelText?: string;
+	chooseText?: string;
+	togglePaletteMoreText?: string;
+	togglePaletteLessText?: string;
+	clearText?: string;
+	noColorSelectedText?: string;
+	preferredFormat?: boolean;
+	containerClassName?: string;
+	replacerClassName?: string;
+	showAlpha?: boolean;
+	theme?: string;
+	palette?: string[][];
+	selectionPalette?: string[];
+	disabled?: boolean;
+	offset?: {
+		top: number;
+		left: number;
+	};
+}
 export interface EditorConfig {
 	/**
 	 * Style class name prefix.
@@ -8513,7 +8553,7 @@ export interface EditorConfig {
 	/**
 	 * Color picker options.
 	 */
-	colorPicker?: ObjectAny;
+	colorPicker?: ColorPickerOptions;
 	pStylePrefix?: string;
 }
 export type EditorConfigKeys = keyof EditorConfig;
