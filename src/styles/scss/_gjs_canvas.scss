@@ -271,7 +271,10 @@ $guide_pad: 5px !default;
     outline: none;
     z-index: 1;
   }
-
+  /* Alwasy place the tools above the highlighter */
+  ##{$app-prefix}tools {
+    z-index: 2;
+  }
   /* This simulate body behaviour */
   // > div:first-child {
   //   background-color: #fff;
