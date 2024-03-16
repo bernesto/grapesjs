@@ -397,9 +397,14 @@ export default class FrameView extends ModuleView<Frame, HTMLIFrameElement> {
         padding-top: 0.001em;
       }
 
-      .${ppfx}dashed *[data-gjs-highlightable][data-gjs-type="zone"] {
+      .${ppfx}dashed *[data-gjs-highlightable][data-gjs-type="zone"],
+      .${ppfx}dashed *[data-gjs-highlightable][data-gjs-type="editable"] {
         display: block;
         min-height: 1em;
+        outline-color: rgba(170,170,255,0.7);
+      }
+
+      .${ppfx}dashed *[data-gjs-highlightable][data-gjs-type="zone"] {
         outline-color: rgba(170,255,170,0.7);
       }
 
