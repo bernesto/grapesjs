@@ -882,6 +882,13 @@ export interface ToWorldOption {
 export interface GetBoxRectOptions extends ToScreenOption {
 	local?: boolean;
 }
+export interface CanvasRefreshOptions {
+	/**
+	 * Refresh canvas spots.
+	 */
+	spots?: boolean;
+	all?: boolean;
+}
 declare enum CanvasEvents {
 	/**
 	 * @event `canvas:dragenter` Something is dragged inside the canvas, `DataTransfer` instance passed as an argument.
@@ -960,6 +967,15 @@ declare enum CanvasEvents {
 	 * });
 	 */
 	pointer = "canvas:pointer",
+	/**
+	 * @event `canvas:refresh` Canvas was refreshed to update elements on top,
+	 * like spots/tools (eg. via `editor.Canvas.refresh()` or on frame resize).
+	 * @example
+	 * editor.on('canvas:refresh', (canvasRefreshOptions) => {
+	 *  console.log('Canvas refreshed with options:', canvasRefreshOptions);
+	 * });
+	 */
+	refresh = "canvas:refresh",
 	/**
 	 * @event `canvas:frame:load` Frame loaded in canvas.
 	 * The event is triggered right after iframe's `onload`.
@@ -2449,6 +2465,12 @@ declare class CanvasModule extends Module<CanvasConfig> {
 	 * @returns {Object}
 	 */
 	getWorldRectToScreen(boxRect: Parameters<CanvasView["getRectToScreen"]>[0]): BoxRect | undefined;
+	/**
+	 * Update canvas for spots/tools positioning.
+	 * @param {Object} [opts] Options.
+	 * @param {Object} [opts.spots=false] Update the position of spots.
+	 */
+	refresh(opts?: CanvasRefreshOptions): void;
 	refreshSpots(): void;
 	destroy(): void;
 }
@@ -9601,8 +9623,8 @@ declare class ItemView extends View {
 	get em(): EditorModel;
 	get ppfx(): string;
 	get pfx(): string;
-	opt: any;
-	module: any;
+	opt: ItemViewProps;
+	module: LayerManager;
 	config: any;
 	sorter: any;
 	/** @ts-ignore */

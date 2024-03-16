@@ -192,14 +192,14 @@ $guide_pad: 5px !default;
 
 .#{$cv-prefix}canvas {
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - var(--gjs-left-width));
+  height: calc(100% - var(--gjs-canvas-top));
   bottom: 0;
   overflow: hidden;
   z-index: 1;
   position: absolute;
   left: 0;
-  top: 0;
+  top: var(--gjs-canvas-top);
 
   &-bg {
     background-color: rgba(0, 0, 0, 0.15);
@@ -271,10 +271,11 @@ $guide_pad: 5px !default;
     outline: none;
     z-index: 1;
   }
-  /* Alwasy place the tools above the highlighter */
+  /* Always place the tools above the highlighter */
   ##{$app-prefix}tools {
     z-index: 2;
   }
+
   /* This simulate body behaviour */
   // > div:first-child {
   //   background-color: #fff;
