@@ -38,8 +38,9 @@ module.exports = ({ config, pkg, webpack }) => {
       alias: {
         ...(config.resolve && config.resolve.alias),
         jquery: 'utils/cash-dom',
-        backbone: `${rootDir}/node_modules/backbone`,
-        underscore: `${rootDir}/node_modules/underscore`,
+        backbone: path.resolve(rootDir, 'node_modules', 'backbone'),
+        underscore: path.resolve(rootDir, 'node_modules', 'underscore'),
+        'backbone-undo/underscore': path.resolve(rootDir, 'node_modules', 'underscore'),
       }
     },
     plugins: [
